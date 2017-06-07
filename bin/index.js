@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const camelCase = require('camelcase');
 const reactPresentational = require('react-presentational');
