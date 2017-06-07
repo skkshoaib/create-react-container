@@ -1,0 +1,29 @@
+{
+  "name": "react-container",
+  "version": "0.0.1",
+  "description": "Create files for a container like Presentational, reducer, action etc.",
+  "main": "index.js",
+  "bin": {
+    "react-container": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "url": "git@github.com:1mgOfficial/react-container.git",
+    "type": "git"
+  },
+  "author": "Sunit Jindal <sunitjindal@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^4.1.0",
+    "react-presentational": "1.4.4"
+  },
+  "devDependencies": {
+    "babel-jest": "20.0.3",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "jest": "20.0.4"
+  }
+}
