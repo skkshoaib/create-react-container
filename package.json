@@ -11,7 +11,7 @@
     "test:watch": "jest --watch"
   },
   "repository": {
-    "url": "git@github.com:1mgOfficial/react-container.git",
+    "url": "git@github.com:1mgOfficial/create-react-container.git",
     "type": "git"
   },
   "author": "Sunit Jindal <sunitjindal@gmail.com>",
