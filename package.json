@@ -1,6 +1,6 @@
 {
   "name": "create-react-container",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Create files for a container like Presentational, reducer, action etc.",
   "main": "index.js",
   "bin": {
