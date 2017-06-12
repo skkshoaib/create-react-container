@@ -22,7 +22,6 @@ Lets assume this is the directory structure of your project
 app
   |- components
   |- containers
-    |- Home
     |- Detail
 ```
 
