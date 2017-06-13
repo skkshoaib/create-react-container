@@ -39,7 +39,7 @@ app
       |- Home.container.js
       |- Home.css
       |- Home.js
-      |- Home.reducer.js
+      |- home.reducer.js
       |- Home.spec.js
       |- index.js
     |- Detail
@@ -97,7 +97,7 @@ Home.propTypes = {
 export default cssModules(Home, styleCss, { allowMultiple: true });
 ```
 
-### Home.reducer.js
+### home.reducer.js
 ```
 const home = (state = {
   info: {}
