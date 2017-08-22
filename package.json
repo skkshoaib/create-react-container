@@ -1,14 +1,16 @@
 {
   "name": "create-react-container",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Create files for a container like Presentational, reducer, action etc.",
   "main": "index.js",
   "bin": {
-    "react-container": "./bin/index.js"
+    "react-container": "./bin/index.js",
+    "labs-container": "./bin/labsContainer.js"
   },
   "scripts": {
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "labs-container": "./bin/labsContainer.js"
   },
   "repository": {
     "url": "git@github.com:1mgOfficial/create-react-container.git",
@@ -18,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "camelcase": "^4.1.0",
+    "pascalcase": "^0.1.1",
     "react-presentational": "1.4.4"
   },
   "devDependencies": {
