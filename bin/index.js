@@ -18,8 +18,17 @@ const mkdirSync = function (dirPath) {
     if (err.code !== 'EEXIST') console.log("Directory already exists "+dirPath);
   }
 }
-
-const componentName = process.argv[2];
+const isValidType=function(type){
+  return type=="container" || type=="component";
+}
+const isContainer=function(type){
+  return type=="container";
+}
+const type = process.argv[2].toLowerCase();
+if(!isValidType(type)){
+  console.error("Pass valid types only i.e. component and container")
+}
+const componentName = process.argv[3];
 const componentNameInSnakeCase = snakeCase(componentName);
 const componentNameInCamelCase = camelCase(componentName);
 const parentDir='./src/main/webapp';
@@ -27,11 +36,13 @@ const dir = parentDir+'/js/containers/' + componentName;
 const componentDir = parentDir+'/js/components';
 const styleDir = parentDir+'/style/components';
 mkdirSync(parentDir+'/js');
-mkdirSync(parentDir+'/js/containers');
+if(isContainer(type)){
+  mkdirSync(parentDir+'/js/containers');
+  mkdirSync(dir);
+}
 mkdirSync(parentDir+'/js/components');
 mkdirSync(parentDir+'/style');
 mkdirSync(parentDir+'/style/components');
-mkdirSync(dir);
 
 const indexFileContent = indexFileTemplate(componentName);
 const containerFileContent = containerFileTemplate(componentName);
@@ -40,10 +51,12 @@ const reducerFileContent = reducerFileTemplate(componentNameInCamelCase);
 const componentFileContent = componentFileTemplate(componentName);
 const styleFileContent = styleFileTemplate(componentName);
 
-fs.writeFileSync(`${dir}/index.js`, indexFileContent);
-fs.writeFileSync(`${dir}/${componentNameInSnakeCase}.container.jsx`, containerFileContent);
-fs.writeFileSync(`${dir}/${componentNameInSnakeCase}.action.js`, actionFileContent);
-fs.writeFileSync(`${dir}/${componentNameInSnakeCase}.reducer.js`, reducerFileContent);
+if(isContainer(type)){
+	fs.writeFileSync(`${dir}/index.js`, indexFileContent);
+	fs.writeFileSync(`${dir}/${componentNameInSnakeCase}.container.jsx`, containerFileContent);
+	fs.writeFileSync(`${dir}/${componentNameInSnakeCase}.action.js`, actionFileContent);
+	fs.writeFileSync(`${dir}/${componentNameInSnakeCase}.reducer.js`, reducerFileContent);
+}
 fs.writeFileSync(`${componentDir}/${componentNameInSnakeCase}.jsx`, componentFileContent);
 fs.writeFileSync(`${styleDir}/${componentNameInSnakeCase}.scss`, styleFileContent);
 
