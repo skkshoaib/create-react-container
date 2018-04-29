@@ -32,15 +32,18 @@ const componentName = process.argv[3];
 const componentNameInSnakeCase = snakeCase(componentName);
 const componentNameInCamelCase = camelCase(componentName);
 const parentDir='./src/main/webapp';
-const dir = parentDir+'/js/containers/' + componentName;
+const containerDir = parentDir+'/js/containers';
 const componentDir = parentDir+'/js/components';
+const reducerDir = parentDir+'/js/reducers';
+
 const styleDir = parentDir+'/style/components';
 mkdirSync(parentDir+'/js');
 if(isContainer(type)){
-  mkdirSync(parentDir+'/js/containers');
-  mkdirSync(dir);
+  mkdirSync(containerDir);
 }
-mkdirSync(parentDir+'/js/components');
+mkdirSync(componentDir);
+mkdirSync(reducerDir);
+
 mkdirSync(parentDir+'/style');
 mkdirSync(parentDir+'/style/components');
 
@@ -52,10 +55,8 @@ const componentFileContent = componentFileTemplate(componentName);
 const styleFileContent = styleFileTemplate(componentName);
 
 if(isContainer(type)){
-	fs.writeFileSync(`${dir}/index.js`, indexFileContent);
-	fs.writeFileSync(`${dir}/${componentNameInSnakeCase}.container.jsx`, containerFileContent);
-	fs.writeFileSync(`${dir}/${componentNameInSnakeCase}.action.js`, actionFileContent);
-	fs.writeFileSync(`${dir}/${componentNameInSnakeCase}.reducer.js`, reducerFileContent);
+	fs.writeFileSync(`${containerDir}/${componentNameInSnakeCase}.container.jsx`, containerFileContent);
+	fs.writeFileSync(`${reducerDir}/${componentNameInSnakeCase}.reducer.js`, reducerFileContent);
 }
 fs.writeFileSync(`${componentDir}/${componentNameInSnakeCase}.jsx`, componentFileContent);
 fs.writeFileSync(`${styleDir}/${componentNameInSnakeCase}.scss`, styleFileContent);
